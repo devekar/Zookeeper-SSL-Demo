@@ -14,13 +14,10 @@ Also add secureClientPort in zoo.cfg
 How to:
 1. Start server. 
 For eg.  mvn spring-boot:run -Djavax.net.debug=ssl:handshake
-
-2. Start client. 
-mvn spring-boot:run 
+2. Start client. For eg. mvn spring-boot:run 
 -Djavax.net.ssl.keyStore=/Users/fudgedassociate/Desktop/certificates/client/zkClient.keystore
 -Djavax.net.ssl.keyStorePassword=clientpass 
 -Djavax.net.ssl.trustStore=/Users/fudgedassociate/Desktop/certificates/client/cacerts_client
 -Djavax.net.ssl.trustStorePassword=changeit
 -Djavax.net.debug=ssl:handshake
-
 3. Go to browser and hit http://localhost:4000/client/send?msg=vaibhav
