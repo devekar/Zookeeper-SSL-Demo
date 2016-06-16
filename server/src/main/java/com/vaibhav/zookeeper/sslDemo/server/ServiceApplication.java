@@ -1,4 +1,5 @@
-package com.vaibhav.zookeeper.sslDemo;
+
+package com.vaibhav.zookeeper.sslDemo.server;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -10,10 +11,9 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 
 @Configuration
 @ComponentScan
-@EnableDiscoveryClient
+//@EnableDiscoveryClient
 @EnableAutoConfiguration
 public class ServiceApplication extends SpringBootServletInitializer {
-    
     
     public static void main( String[] args ) {
         SpringApplication.run(ServiceApplication.class, args);

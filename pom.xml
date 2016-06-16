@@ -1,11 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <version>1.0.0</version>
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.vaibhav.zookeeper</groupId>
   <artifactId>sslDemo</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <packaging>pom</packaging>
   <name>sslDemo</name>
-  <packaging>war</packaging>
+
+  <parent>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <version>1.2.7.RELEASE</version>
+  </parent>
+
+  <modules>
+    <module>server</module>
+    <module>client</module>
+  </modules>
+
 
   <properties>
     <jdk.version>1.7</jdk.version>
@@ -15,12 +28,6 @@
     <curator.version>2.9.0</curator.version>
     <archaius.version>0.7.1</archaius.version>
   </properties>
-
-  <parent>
-    <groupId>org.springframework.boot</groupId>
-    <artifactId>spring-boot-starter-parent</artifactId>
-    <version>1.2.7.RELEASE</version>
-  </parent>
 
   <dependencies>
     <dependency>
@@ -57,7 +64,7 @@
       <groupId>org.springframework</groupId>
       <artifactId>spring-webmvc</artifactId>
     </dependency>
-    
+
     <dependency>
       <groupId>javax.servlet</groupId>
       <artifactId>jstl</artifactId>
@@ -101,42 +108,12 @@
       <artifactId>archaius-zookeeper</artifactId>
       <version>${archaius.version}</version>
     </dependency>
+
+    <dependency>
+      <groupId>org.apache.httpcomponents</groupId>
+      <artifactId>httpclient</artifactId>
+      <version>4.3.5</version>
+    </dependency>
   </dependencies>
 
-  <build>
-    <finalName>service</finalName>
-    <plugins>
-      <!-- Set a JDK compiler level -->
-      <plugin>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <configuration>
-          <source>${jdk.version}</source>
-          <target>${jdk.version}</target>
-        </configuration>
-      </plugin>
-      <plugin>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-maven-plugin</artifactId>
-        <configuration>
-          <addResources>false</addResources>
-          <layout>ZIP</layout>
-          <enabled>true</enabled>
-        </configuration>
-        <executions>
-          <execution>
-            <goals>
-              <goal>repackage</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
-    </plugins>
-  </build>
-
-  <repositories>
-    <repository>
-      <id>spring-milestones</id>
-      <url>http://repo.spring.io/libs-milestone/</url>
-    </repository>
-  </repositories>
 </project>
